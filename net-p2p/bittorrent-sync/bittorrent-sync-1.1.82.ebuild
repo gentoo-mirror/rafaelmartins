@@ -18,6 +18,7 @@ IUSE=""
 DEPEND=""
 RDEPEND="${DEPEND}"
 
+RESTRICT="mirror bindist"
 S="${WORKDIR}"
 
 QA_PREBUILT="opt/bin/btsync"
