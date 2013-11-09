@@ -19,9 +19,9 @@ DEPEND="ssl? ( dev-libs/openssl )
 	dev-libs/libnl:1.1
 	madwifi? ( ||
 		( >net-wireless/madwifi-ng-tools-0.9.3
-		net-wireless/madwifi-old ) )
-	!new-wireless/hostapd"
-RDEPEND="${DEPEND}"
+		net-wireless/madwifi-old ) )"
+RDEPEND="${DEPEND}
+	!!net-wireless/hostapd"
 
 S="${WORKDIR}/wpa_supplicant_hostapd-${PV}/hostapd"
 
