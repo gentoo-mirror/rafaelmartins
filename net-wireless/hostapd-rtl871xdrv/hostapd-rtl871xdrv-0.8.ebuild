@@ -74,6 +74,8 @@ src_configure() {
 	einfo "  Wired driver enabled"
 	echo "CONFIG_DRIVER_PRISM54=y" >> ${CONFIG}
 	einfo "  Prism54 driver enabled"
+	echo "CONFIG_DRIVER_RTW=y" >> ${CONFIG}
+	einfo "  rtl871xdrv driver enabled"
 	echo "CONFIG_DRIVER_NONE=y" >> ${CONFIG}
 	einfo "  None driver enabled"
 
