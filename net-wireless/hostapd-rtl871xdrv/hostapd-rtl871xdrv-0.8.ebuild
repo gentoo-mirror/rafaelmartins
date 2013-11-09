@@ -13,7 +13,7 @@ SRC_URI="http://distfiles.rafaelmartins.eng.br/misc/wpa_supplicant_hostapd-${PV}
 LICENSE="|| ( GPL-2 BSD )"
 SLOT="0"
 KEYWORDS="~amd64 ~mips ~ppc ~x86"
-IUSE="debug ipv6 logwatch madwifi +ssl +wps"
+IUSE="ipv6 logwatch madwifi +ssl +wps"
 
 DEPEND="ssl? ( dev-libs/openssl )
 	dev-libs/libnl:1.1
@@ -104,10 +104,6 @@ src_configure() {
 		echo "CONFIG_IPV6=y" >> ${CONFIG}
 	fi
 
-	if ! use debug; then
-		echo "CONFIG_NO_STDOUT_DEBUG=y" >> ${CONFIG}
-	fi
-
 	# If we are using libnl 2.0 and above, enable support for it
 	# Removed for now, since the 3.2 version is broken, and we don't
 	# support it.
@@ -127,7 +123,7 @@ src_compile() {
 
 	if use ssl; then
 		emake nt_password_hash || die "emake nt_password_hash failed"
-		#emake hlr_auc_gw || die "emake hlr_auc_gw failed"
+		emake hlr_auc_gw || die "emake hlr_auc_gw failed"
 	fi
 }
 
@@ -140,7 +136,7 @@ src_install() {
 	dobin hostapd_cli
 
 	use ssl && dobin nt_password_hash
-	#use ssl && dobin hlr_auc_gw
+	use ssl && dobin hlr_auc_gw
 
 	newinitd "${FILESDIR}"/${PN}-init.d hostapd
 	newconfd "${FILESDIR}"/${PN}-conf.d hostapd
