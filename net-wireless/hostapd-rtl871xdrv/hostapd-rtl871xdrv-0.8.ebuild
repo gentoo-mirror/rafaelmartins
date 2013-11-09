@@ -28,6 +28,7 @@ S="${WORKDIR}/wpa_supplicant_hostapd-${PV}/hostapd"
 src_prepare() {
 	sed -i -e "s:/etc/hostapd:/etc/hostapd/hostapd:g" \
 		"${S}/hostapd.conf"
+	epatch "${FILESDIR}/${P}_fix-ssl-linking.patch"
 }
 
 src_configure() {
