@@ -22,10 +22,10 @@ fi
 
 LICENSE="LGPL-2"
 SLOT="0"
-IUSE="doc examples fastcgi"
+IUSE="doc"
 
 RDEPEND=">=dev-libs/glib-2.34
-	fastcgi? ( dev-libs/fcgi )"
+	dev-libs/fcgi"
 DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )"
 
@@ -36,9 +36,9 @@ src_prepare() {
 
 src_configure() {
 	econf \
-		$(use_enable examples) \
-		$(use_enable fastcgi) \
-		$(use_with doc doxygen)
+		$(use_with doc doxygen) \
+		--disable-examples \
+		--without-valgrind
 }
 
 src_compile() {
