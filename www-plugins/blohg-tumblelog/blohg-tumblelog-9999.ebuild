@@ -27,7 +27,7 @@ IUSE=""
 
 DEPEND="
 	>=www-apps/blohg-0.12
-	dev-python/pygments
-	dev-python/pyoembed
-	dev-python/beautifulsoup:4"
+	dev-python/pygments[${PYTHON_USEDEP}]
+	dev-python/pyoembed[${PYTHON_USEDEP}]
+	dev-python/beautifulsoup:4[${PYTHON_USEDEP}]"
 RDEPEND="${DEPEND}"

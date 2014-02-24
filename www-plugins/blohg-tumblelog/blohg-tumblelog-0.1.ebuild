@@ -1,4 +1,4 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -27,7 +27,7 @@ IUSE=""
 
 DEPEND="
 	>=www-apps/blohg-0.12
-	dev-python/pygments
+	dev-python/pygments[${PYTHON_USEDEP}]
 	dev-python/python-oembed
-	dev-python/beautifulsoup:4"
+	dev-python/beautifulsoup:4[${PYTHON_USEDEP}]"
 RDEPEND="${DEPEND}"

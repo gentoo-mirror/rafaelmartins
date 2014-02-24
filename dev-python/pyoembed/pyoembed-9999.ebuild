@@ -28,6 +28,6 @@ SLOT="0"
 IUSE=""
 
 DEPEND="
-	dev-python/requests
-	dev-python/beautifulsoup:4"
+	dev-python/requests[${PYTHON_USEDEP}]
+	dev-python/beautifulsoup:4[${PYTHON_USEDEP}]"
 RDEPEND="${DEPEND}"
