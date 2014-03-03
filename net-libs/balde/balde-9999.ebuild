@@ -25,7 +25,8 @@ SLOT="0"
 IUSE="doc"
 
 RDEPEND=">=dev-libs/glib-2.34
-	dev-libs/fcgi"
+	dev-libs/fcgi
+	sys-apps/file"
 DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )"
 
