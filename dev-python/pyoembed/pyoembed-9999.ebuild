@@ -2,8 +2,6 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-# FIXME: add tests
-
 EAPI=5
 
 PYTHON_COMPAT=( python2_7 )
@@ -25,9 +23,14 @@ fi
 
 LICENSE="BSD"
 SLOT="0"
-IUSE=""
+IUSE="test"
 
-DEPEND="
+RDEPEND="
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/beautifulsoup:4[${PYTHON_USEDEP}]"
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	test? ( dev-python/mock[${PYTHON_USEDEP}] )"
+
+python_test() {
+	esetup.py test
+}
