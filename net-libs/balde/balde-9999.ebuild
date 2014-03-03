@@ -22,7 +22,7 @@ fi
 
 LICENSE="LGPL-2"
 SLOT="0"
-IUSE="doc"
+IUSE="doc test"
 
 RDEPEND=">=dev-libs/glib-2.34
 	dev-libs/fcgi
