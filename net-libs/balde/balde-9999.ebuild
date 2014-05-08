@@ -5,8 +5,8 @@
 EAPI=5
 
 if [[ ${PV} = *9999* ]]; then
-	EGIT_REPO_URI="git://github.com/rafaelmartins/balde.git
-		https://github.com/rafaelmartins/balde.git"
+	EGIT_REPO_URI="git://git.rgm.io/balde/balde.git
+		http://git.rgm.io/balde/balde.git"
 	inherit git-r3 autotools
 fi
 
@@ -26,7 +26,13 @@ IUSE="doc test"
 
 RDEPEND=">=dev-libs/glib-2.34
 	dev-libs/fcgi
-	sys-apps/file"
+	x11-misc/shared-mime-info"
+
+if [[ ${PV} = *9999* ]]; then
+	RDEPEND="${RDEPEND}
+		dev-util/peg"
+fi
+
 DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )"
 
