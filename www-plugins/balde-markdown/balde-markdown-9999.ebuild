@@ -25,7 +25,8 @@ SLOT="0"
 IUSE="test"
 
 RDEPEND=">=dev-libs/glib-2.34
-	net-libs/balde"
+	net-libs/balde
+	app-text/discount"
 DEPEND="${RDEPEND}"
 
 src_prepare() {
