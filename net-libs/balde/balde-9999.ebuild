@@ -5,15 +5,15 @@
 EAPI=5
 
 if [[ ${PV} = *9999* ]]; then
-	EGIT_REPO_URI="git://git.rgm.io/balde/balde.git
-		http://git.rgm.io/balde/balde.git"
+	EGIT_REPO_URI="git://github.com/balde/balde.git
+		https://github.com/balde/balde.git"
 	inherit git-r3 autotools
 fi
 
 DESCRIPTION="A microframework for C based on GLib and bad intentions."
 HOMEPAGE="http://balde.io/"
 
-SRC_URI=""  # FIXME!
+SRC_URI="https://github.com/${PN}/${PN}/releases/download/v${PV}/${P}.tar.bz2"
 KEYWORDS="~amd64 ~x86"
 if [[ ${PV} = *9999* ]]; then
 	SRC_URI=""
@@ -22,10 +22,11 @@ fi
 
 LICENSE="LGPL-2"
 SLOT="0"
-IUSE="doc test"
+IUSE="doc test +fastcgi"
 
-RDEPEND=">=dev-libs/glib-2.34
-	dev-libs/fcgi
+RDEPEND="
+	fastcgi? ( dev-libs/fcgi )
+	>=dev-libs/glib-2.34
 	x11-misc/shared-mime-info"
 
 if [[ ${PV} = *9999* ]]; then
@@ -44,6 +45,7 @@ src_prepare() {
 src_configure() {
 	econf \
 		$(use_with doc doxygen) \
+		$(use_enable fastcgi) \
 		--disable-examples \
 		--without-valgrind
 }

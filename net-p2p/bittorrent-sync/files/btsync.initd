@@ -6,7 +6,7 @@
 BTSYNC_EXEC="/opt/bin/btsync"
 PROGNAME=${SVCNAME#*.}
 PIDPATH="/var/run/btsync"
-PIDFILE="${PIDPATH}/btsync.pid"
+PIDFILE="${PIDPATH}/${SVCNAME}.pid"
 
 depend() {
 	need net
