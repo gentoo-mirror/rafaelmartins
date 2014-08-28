@@ -13,7 +13,7 @@ DESCRIPTION="The GLib library of C routines (CI/Jenkins multi-slot)"
 HOMEPAGE="http://www.gtk.org/"
 
 LICENSE="LGPL-2+"
-SLOT="${GNOME_ORG_PVP}"
+SLOT="${PV}"
 IUSE=
 KEYWORDS=
 
