@@ -22,7 +22,7 @@ fi
 
 LICENSE="LGPL-2"
 SLOT="0"
-IUSE="doc test +fastcgi +httpd"
+IUSE="doc test +fastcgi +httpd static-libs"
 
 RDEPEND="
 	fastcgi? ( dev-libs/fcgi )
@@ -48,6 +48,7 @@ src_configure() {
 		$(use_with doc doxygen) \
 		$(use_enable fastcgi) \
 		$(use_enable httpd webserver) \
+		$(use_enable static-libs static) \
 		--disable-examples \
 		--with-http-parser=system \
 		--without-valgrind
