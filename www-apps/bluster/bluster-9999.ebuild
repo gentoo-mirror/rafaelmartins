@@ -5,13 +5,13 @@
 EAPI=5
 
 if [[ ${PV} = *9999* ]]; then
-	EGIT_REPO_URI="git://github.com/rafaelmartins/rant.git
-		https://github.com/rafaelmartins/rant.git"
+	EGIT_REPO_URI="git://github.com/rafaelmartins/bluster.git
+		https://github.com/rafaelmartins/bluster.git"
 	inherit git-r3 autotools
 fi
 
-DESCRIPTION="A web app to publish single-page rants written in markdown using GitHub Gists."
-HOMEPAGE="https://github.com/rafaelmartins/rant"
+DESCRIPTION="A web app to publish single-page texts written in markdown using GitHub Gists."
+HOMEPAGE="https://github.com/rafaelmartins/bluster"
 
 SRC_URI="https://github.com/rafaelmartins/${PN}/releases/download/v${PV}/${P}.tar.bz2"
 KEYWORDS="~amd64 ~x86"
