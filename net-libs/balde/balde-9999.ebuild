@@ -26,7 +26,6 @@ IUSE="doc test +fastcgi +httpd static-libs"
 
 RDEPEND="
 	fastcgi? ( dev-libs/fcgi )
-	httpd? ( net-libs/http-parser:0/2.3 )
 	>=dev-libs/glib-2.34
 	x11-misc/shared-mime-info"
 
@@ -50,7 +49,6 @@ src_configure() {
 		$(use_enable httpd webserver) \
 		$(use_enable static-libs static) \
 		--disable-examples \
-		--with-http-parser=system \
 		--without-valgrind
 }
 
