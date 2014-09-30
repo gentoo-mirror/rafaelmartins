@@ -24,11 +24,9 @@ DEPEND="virtual/pkgconfig
 RDEPEND=""
 
 src_prepare() {
+	sed -i -e '/docs\/old/d' CMakeLists.txt || die 'sed docs failed'
 	if ! use test; then
-		sed -i \
-			-e '/tests/d' \
-			-e '/docs\/old/d' \
-			CMakeLists.txt || die 'sed failed'
+		sed -i -e '/tests/d' CMakeLists.txt || die 'sed tests failed'
 	fi
 
 	echo -e "#!/bin/bash\necho ${PV}" > version.sh
