@@ -10,7 +10,7 @@ if [[ ${PV} = *9999* ]]; then
 	inherit git-r3 autotools
 fi
 
-DESCRIPTION="A web app to publish single-page texts written in markdown using GitHub Gists."
+DESCRIPTION="A web app to publish rants written in markdown using GitHub Gists."
 HOMEPAGE="https://github.com/rafaelmartins/bluster"
 
 SRC_URI="https://github.com/rafaelmartins/${PN}/releases/download/v${PV}/${P}.tar.bz2"
@@ -22,13 +22,13 @@ fi
 
 LICENSE="LGPL-2"
 SLOT="0"
-IUSE="test"
+IUSE="test static-libs"
 
 RDEPEND="
 	=net-libs/balde-9999
-	=net-libs/balde-markdown-9999
 	>=dev-libs/json-glib-0.16.2
-	net-misc/curl"
+	net-misc/curl
+	app-text/discount"
 
 DEPEND="${RDEPEND}"
 
@@ -39,5 +39,6 @@ src_prepare() {
 
 src_configure() {
 	econf \
+		$(use_enable static-libs static) \
 		--without-valgrind
 }
