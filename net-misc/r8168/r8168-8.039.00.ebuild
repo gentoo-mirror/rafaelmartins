@@ -8,7 +8,7 @@ inherit linux-mod eutils
 
 DESCRIPTION="r8168 driver for Realtek 8111/8168 PCI-E NICs"
 HOMEPAGE="http://www.realtek.com.tw"
-SRC_URI="http://r8168.googlecode.com/files/${P}.tar.bz2"
+SRC_URI="http://r8168dl.appspot.com/files/${P}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
 IUSE=""
