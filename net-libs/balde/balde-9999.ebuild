@@ -37,6 +37,8 @@ fi
 DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )"
 
+REQUIRED_USE="test? ( static-libs )"
+
 src_prepare() {
 	[[ ${PV} = *9999* ]] && eautoreconf
 	default
