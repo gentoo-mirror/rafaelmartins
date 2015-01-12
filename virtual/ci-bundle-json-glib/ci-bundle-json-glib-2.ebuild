@@ -4,7 +4,7 @@
 
 EAPI=5
 
-DESCRIPTION="Bundle with several versions of GLib for CI (Jenkins)"
+DESCRIPTION="Bundle with several versions of Json-GLib for CI (Jenkins)"
 HOMEPAGE=""
 SRC_URI=""
 
@@ -15,7 +15,6 @@ IUSE=""
 
 DEPEND=""
 RDEPEND="
-	ci-bundle/glib:2.34.3
-	ci-bundle/glib:2.38.2
-	ci-bundle/glib:2.40.0
-	ci-bundle/glib:2.41.3"
+	=ci-bundle/json-glib-0.16.2-r1
+	=ci-bundle/json-glib-0.99.2-r1
+	=ci-bundle/json-glib-1.0.2-r1"

@@ -14,9 +14,9 @@ SLOT="${PV}"
 KEYWORDS=""
 IUSE=""
 
-GLIB_VERSIONS=( 2.38.2 2.40.0 2.41.3 )
+GLIB_VERSIONS=( 2.38.2 2.40.2 2.43.2 )
 
-RDEPEND="=virtual/ci-bundle-glib-1"
+RDEPEND="=virtual/ci-bundle-glib-2"
 DEPEND="${RDEPEND}
 	>=sys-devel/gettext-0.18
 	virtual/pkgconfig"
