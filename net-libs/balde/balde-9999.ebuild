@@ -48,7 +48,7 @@ src_configure() {
 	econf \
 		$(use_with doc doxygen) \
 		$(use_enable fastcgi) \
-		$(use_enable httpd webserver) \
+		$(use_enable httpd http) \
 		$(use_enable static-libs static) \
 		--disable-examples \
 		--without-valgrind
