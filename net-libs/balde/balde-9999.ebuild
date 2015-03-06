@@ -45,13 +45,16 @@ src_prepare() {
 }
 
 src_configure() {
+	local myconf="--disable-leg"
+	[[ ${PV} = *9999* ]] && myconf="--enable-leg"
 	econf \
-		$(use_with doc doxygen) \
+		$(use_enable doc) \
 		$(use_enable fastcgi) \
 		$(use_enable httpd http) \
 		$(use_enable static-libs static) \
 		--disable-examples \
-		--without-valgrind
+		--disable-valgrind \
+		${myconf}
 }
 
 src_compile() {
