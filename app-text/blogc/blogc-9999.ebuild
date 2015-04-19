@@ -6,7 +6,7 @@ EAPI=5
 
 if [[ ${PV} = *9999* ]]; then
 	EGIT_REPO_URI="git://github.com/rafaelmartins/blogc.git
-		https://github.com/balde/balde-utils.git"
+		https://github.com/rafaelmartins/blogc.git"
 	inherit git-r3 autotools
 fi
 
