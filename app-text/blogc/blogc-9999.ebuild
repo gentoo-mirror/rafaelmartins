@@ -22,7 +22,7 @@ fi
 
 LICENSE="BSD"
 SLOT="0"
-IUSE="test static-libs"
+IUSE="test"
 
 RDEPEND=""
 DEPEND="${RDEPEND}
@@ -35,7 +35,6 @@ src_prepare() {
 
 src_configure() {
 	econf \
-		$(use_enable static-libs static) \
 		$(use_enable test tests) \
 		--disable-valgrind
 }
