@@ -18,6 +18,7 @@ KEYWORDS="~amd64 ~x86"
 if [[ ${PV} = *9999* ]]; then
 	SRC_URI=""
 	KEYWORDS=""
+	DEPEND="app-text/ronn"
 fi
 
 LICENSE="BSD"
@@ -25,7 +26,7 @@ SLOT="0"
 IUSE="test"
 
 RDEPEND=""
-DEPEND="${RDEPEND}
+DEPEND="${DEPEND}
 	test? ( dev-util/cmocka )"
 
 src_prepare() {
@@ -34,7 +35,14 @@ src_prepare() {
 }
 
 src_configure() {
+	local myconf=""
+	if [[ ${PV} = *9999* ]]; then
+		myconf+="--enable-ronn"
+	else
+		myconf+="--disable-ronn"
+	fi
 	econf \
 		$(use_enable test tests) \
-		--disable-valgrind
+		--disable-valgrind \
+		${myconf}
 }
