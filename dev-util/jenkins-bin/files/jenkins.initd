@@ -1,0 +1,20 @@
+#!/sbin/runscript
+# Copyright 1999-2014 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+description="An extendable open source continuous integration server"
+
+jenkins_war=/usr/share/jenkins/jenkins.war
+jenkins_log=/var/log/jenkins/jenkins.log
+
+command=/usr/bin/java
+command_background="yes"
+command_args="${jenkins_java_options} -DJENKINS_HOME=\"${jenkins_home}\" -jar ${jenkins_war} --logfile=${jenkins_log} --ajp13Port=-1 ${jenkins_port:+--httpPort=${jenkins_port}} ${jenkins_args}"
+start_stop_daemon_args="--user \"${jenkins_user:-jenkins}\" --group \"${jenkins_group:-jenkins}\""
+pidfile=${pidfile:-/run/jenkins.pid}
+
+depend() {
+	need net
+	use dns logger netmount
+}

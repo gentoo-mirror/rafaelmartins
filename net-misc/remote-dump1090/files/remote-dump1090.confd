@@ -1,0 +1,27 @@
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+# DO NOT MODIFY THIS FILE DIRECTLY! CREATE A COPY AND MODIFY THAT INSTEAD!
+
+# The hostname of the dump1090 source instance.
+#
+REMOTE_DUMP1090_SOURCE_HOST=
+
+# The hostname of the dump1090 destination instance.
+#
+REMOTE_DUMP1090_DESTINATION_HOST=
+
+# The port of the dump1090 source instance. Defaults to 30002.
+#
+#REMOTE_DUMP1090_SOURCE_PORT=
+
+# The port of the dump1090 destination instance. Defaults to 30001.
+#
+#REMOTE_DUMP1090_DESTINATION_PORT=
+
+# The user and group to run remote-dump1090 as. The user may need to be
+# in the usb group.
+#
+REMOTE_DUMP1090_USER=
+REMOTE_DUMP1090_GROUP=

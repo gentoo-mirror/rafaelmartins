@@ -1,0 +1,77 @@
+#!/sbin/runscript
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+PROGNAME=${SVCNAME#*.}
+REMOTE_DUMP1090=/usr/bin/remote-dump1090
+PIDPATH=/run/remote-dump1090
+PIDFILE=${PIDPATH}/${PROGNAME}.pid
+
+depend() {
+	need net
+}
+
+start() {
+	local OPTIONS="-l"
+
+	if [ "${SVCNAME}" = "remote-dump1090" ]; then
+		eerror "You are not supposed to run this script directly. Create a symlink"
+		eerror "for the remote-dump1090 application you want to run as well as a"
+		eerror "copy of the configuration file and modify it appropriately like so..."
+		eerror
+		eerror "  ln -s remote-dump1090 /etc/init.d/remote-dump1090.home"
+		eerror "  cp /etc/conf.d/remote-dump1090 /etc/conf.d/remote-dump1090.home"
+		eerror "  nano /etc/conf.d/remote-dump1090.home"
+		eerror
+		return 1
+	fi
+
+	if [ -z "${REMOTE_DUMP1090_USER}" ]; then
+		eerror "REMOTE_DUMP1090_USER variable is required."
+		return 1
+	fi
+
+	if [ -z "${REMOTE_DUMP1090_GROUP}" ]; then
+		eerror "REMOTE_DUMP1090_GROUP variable is required."
+		return 1
+	fi
+
+	if [ -z "${REMOTE_DUMP1090_SOURCE_HOST}" ]; then
+		eerror "REMOTE_DUMP1090_SOURCE_HOST variable is required."
+		return 1
+	fi
+
+	if [ -z "${REMOTE_DUMP1090_DESTINATION_HOST}" ]; then
+		eerror "REMOTE_DUMP1090_DESTINATION_HOST variable is required."
+		return 1
+	fi
+
+	if [ -n "${REMOTE_DUMP1090_SOURCE_PORT}" ]; then
+		OPTIONS="${OPTIONS} -s ${REMOTE_DUMP1090_SOURCE_PORT}"
+	fi
+
+	if [ -n "${REMOTE_DUMP1090_DESTINATION_PORT}" ]; then
+		OPTIONS="${OPTIONS} -d ${REMOTE_DUMP1090_DESTINATION_PORT}"
+	fi
+
+	OPTIONS="${OPTIONS} ${REMOTE_DUMP1090_SOURCE_HOST} ${REMOTE_DUMP1090_DESTINATION_HOST}"
+
+	ebegin "Starting remote-dump1090 instance ${PROGNAME}"
+	checkpath -d -m 0750 -o "${REMOTE_DUMP1090_USER}":"${REMOTE_DUMP1090_GROUP}" "${PIDPATH}"
+	start-stop-daemon \
+		--start \
+		--background \
+		--make-pidfile \
+		--pidfile ${PIDFILE} \
+		--user "${REMOTE_DUMP1090_USER}:${REMOTE_DUMP1090_GROUP}" \
+		--exec ${REMOTE_DUMP1090} \
+		-- ${OPTIONS}
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping remote-dump1090 instance ${PROGNAME}"
+	start-stop-daemon --stop --pidfile ${PIDFILE}
+	eend ${RETVAL}
+}

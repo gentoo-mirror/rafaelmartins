@@ -1,0 +1,21 @@
+# Copyright 1999-2014 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+# Jenkins home directory
+jenkins_home=/var/lib/jenkins
+
+# Settings to pass to java
+jenkins_java_options="-Djava.awt.headless=true"
+
+# Jenkins http port
+jenkins_port=8080
+
+# Jenkins user and port to run the daemon
+#jenkins_user=jenkins
+#jenkins_port=jenkins
+
+# Arbitrary arguments to pass to Jenkins.
+# Eg.: --httpListenAddress=127.0.0.1 --prefix=/jenkins
+# Full option list: java -jar jenkins.war --help
+jenkins_args=""

@@ -1,0 +1,28 @@
+From a49214d48235b6b275abe0de21a3913a91b85d32 Mon Sep 17 00:00:00 2001
+From: Mukesh Agrawal <quiche@chromium.org>
+Date: Sat, 15 Oct 2011 16:52:51 +0300
+Subject: [PATCH] Fix object file list for hlr_auc_gw
+
+If CONFIG_NO_RANDOM_POOL is unset, src/crypto/random.o is linked
+into hlr_auc_gw. However, in this configuration, random.o requires
+symbols defined in src/utils/eloop.o. So add eloop.o to the object
+file list for hlr_auc_gw.
+---
+ hostapd/Makefile |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+diff --git a/hostapd/Makefile b/hostapd/Makefile
+index 8e8c8c0..9664c02 100644
+--- a/hostapd/Makefile
++++ b/hostapd/Makefile
+@@ -699,6 +699,7 @@ CFLAGS += -DCONFIG_NO_RANDOM_POOL
+ else
+ OBJS += ../src/crypto/random.o
+ HOBJS += ../src/crypto/random.o
++HOBJS += ../src/utils/eloop.o
+ HOBJS += $(SHA1OBJS)
+ HOBJS += ../src/crypto/md5.o
+ endif
+-- 
+1.7.4-rc1
+
