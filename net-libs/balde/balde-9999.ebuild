@@ -22,10 +22,9 @@ fi
 
 LICENSE="LGPL-2"
 SLOT="0"
-IUSE="doc test +fastcgi +httpd static-libs"
+IUSE="doc test static-libs"
 
 RDEPEND="
-	fastcgi? ( dev-libs/fcgi )
 	>=dev-libs/glib-2.34
 	x11-misc/shared-mime-info"
 
@@ -49,8 +48,6 @@ src_configure() {
 	[[ ${PV} = *9999* ]] && myconf="--enable-leg"
 	econf \
 		$(use_enable doc) \
-		$(use_enable fastcgi) \
-		$(use_enable httpd http) \
 		$(use_enable static-libs static) \
 		--disable-examples \
 		--disable-valgrind \
