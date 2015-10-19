@@ -10,7 +10,4 @@
 
 		balde is free software, released under the LGPL2 license.
 	</longdescription>
-	<use>
-		<flag name="httpd">Enables built-in development web server.</flag>
-	</use>
 </pkgmetadata>
