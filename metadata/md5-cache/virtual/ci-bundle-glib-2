@@ -1,0 +1,7 @@
+DEFINED_PHASES=-
+DESCRIPTION=Bundle with several versions of GLib for CI (Jenkins)
+EAPI=5
+RDEPEND=ci-bundle/glib:2.35.9 ci-bundle/glib:2.38.2 ci-bundle/glib:2.40.2 ci-bundle/glib:2.43.2
+SLOT=0
+_eclass_exported_funcs=-
+_md5_=1730a0080384d0c98535f2b6d0bbf448
