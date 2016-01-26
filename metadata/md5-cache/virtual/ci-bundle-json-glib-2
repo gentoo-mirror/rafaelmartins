@@ -1,7 +1,0 @@
-DEFINED_PHASES=-
-DESCRIPTION=Bundle with several versions of Json-GLib for CI (Jenkins)
-EAPI=5
-RDEPEND==ci-bundle/json-glib-0.16.2-r1 =ci-bundle/json-glib-0.99.2-r1 =ci-bundle/json-glib-1.0.2-r1
-SLOT=0
-_eclass_exported_funcs=-
-_md5_=4891e7b8a6b2e9178ea6b660d5e662f8
