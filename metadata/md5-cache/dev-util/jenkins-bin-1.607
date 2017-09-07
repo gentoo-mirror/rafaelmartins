@@ -8,6 +8,5 @@ LICENSE=MIT
 RDEPEND=media-fonts/dejavu >=virtual/jdk-1.5
 SLOT=0
 SRC_URI=http://pkg.jenkins-ci.org/debian/binary/jenkins_1.607_all.deb
-_eclass_exported_funcs=pkg_setup:- src_unpack:unpacker src_install:-
 _eclasses_=unpacker	f40f7b4bd5aa88c2a4ba7b0d1e0ded70	user	e4b567c44272a719fabf53f0f885d3f7
 _md5_=4a1cc8227b96b331019e3f87767fa823
