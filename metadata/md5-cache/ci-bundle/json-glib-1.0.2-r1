@@ -7,5 +7,5 @@ LICENSE=LGPL-2.1+
 RDEPEND==virtual/ci-bundle-glib-2
 SLOT=1.0.2
 SRC_URI=mirror://gnome/sources/json-glib/1.0/json-glib-1.0.2.tar.xz
-_eclasses_=estack	43ddf5aaffa7a8d0482df54d25a66a1f	gnome.org	5e4cc5af3f1b17bdee155bf02e8c2df4	multilib	97f470f374f2e94ccab04a2fb21d811e	toolchain-funcs	fa02994d0beba88681127d93da4411ec	versionator	26ca8a8bd95d6a74122c08ba98a4ee72
+_eclasses_=estack	43ddf5aaffa7a8d0482df54d25a66a1f	gnome.org	5e4cc5af3f1b17bdee155bf02e8c2df4	multilib	97f470f374f2e94ccab04a2fb21d811e	toolchain-funcs	1e35303c63cd707f6c3422b4493d5607	versionator	26ca8a8bd95d6a74122c08ba98a4ee72
 _md5_=dba9aa46e49c1ff56702ecd10e0e3c8d
