@@ -1,11 +1,9 @@
-app-portage/distpatch 9999: Distfile Patching Support for Gentoo Linux (tools)
 app-text/blogc 9999: A blog compiler
 ci-bundle/glib 2.35.9 2.38.2 2.40.2 2.43.2: The GLib library of C routines (CI/Jenkins multi-slot)
 ci-bundle/json-glib 0.16.2-r1 0.99.2-r1 1.0.2-r1: A library providing GLib support for the JSON format (CI/Jenkins multi-slot)
 dev-libs/balde-utils 9999: A general purpose utility library for C.
 dev-libs/libcork 0.13.1: A simple, easily embeddable cross-platform C library
 dev-util/jenkins-bin 1.607: An extendable open source continuous integration server
-net-dns/dnsimple-dyndns 9999: Dynamic DNS implementation, that relies on DNSimple.com
 net-libs/balde 9999: A microframework for C based on GLib and bad intentions.
 net-libs/balde-markdown 9999: A balde extension that adds Markdown support
 net-misc/kvm-systemd 9999: Some utilities to run KVM with systemd
